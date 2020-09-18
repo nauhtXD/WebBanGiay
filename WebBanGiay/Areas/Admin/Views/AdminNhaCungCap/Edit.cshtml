@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/LayoutAdmin.cshtml";
+}
+
+@model WebBanGiay.Models.NhaCungCap
+@using (Html.BeginForm())
+{      
+    <table class="table">
+        <thead>
+            <td colspan="2">
+                <h2>CHỈNH SỬA THÔNG TIN NHÀ CUNG CẤP</h2>
+            </td>
+        </thead>
+        <tr>
+            <td>Mã Nhà Cung Cấp
+            </td>
+            <td>
+                <fieldset disabled>
+                    <div>
+                        @Html.TextBoxFor(m => m.MaNCC)
+                        @ViewData["Loi"]
+                    </div>
+                </fieldset>
+            </td>
+        </tr>
+        <tr>
+            <td>Tên Nhà Cung Cấp
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.TenNCC)
+                @ViewData["Loi1"]
+            </td>
+        </tr>
+        <tr>
+            <td>Địa Chỉ
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.DiaChi)
+                @ViewData["Loi2"]
+            </td>
+        </tr>
+        <tr>
+            <td>Số Điện Thoại
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.DienThoai)
+                @ViewData["Loi3"]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button class="btn btn-outline-info">
+                    @Html.ActionLink("Quay lại Danh Sách", "Index")
+                </button>
+            </td>
+            <td>
+                <input class="btn btn-outline-info" type="submit" value="Save" />
+            </td>
+        </tr>
+    </table>
+}
+

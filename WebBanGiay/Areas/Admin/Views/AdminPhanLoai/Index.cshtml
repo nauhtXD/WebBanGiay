@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<html>
+<body>
+    <div class="row">
+        <div class="col-lg-4">
+            <h4 id="Title_View" style="margin-top: 20px">PHÂN LOẠI</h4>
+        </div>
+        <div class="col-lg-8">
+            @using (Html.BeginForm())
+            {   
+                <div class="container">
+                    <div class="col-lg-9" style="box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 10px; box-sizing: inherit; margin-bottom: 10px; padding: 20px; box-sizing: inherit; line-height: 1.6em; padding: 15px; background-color: lightgrey; float: right">
+                        <input style="color: lawngreen; float: right" class="btn btn-success" type="submit" value="Thêm mới" />
+                        <h5><i>Nhập tên loại: &nbsp &nbsp</i>@Html.TextBox("TenLoai")</h5>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <hr width="100%" size="5px" align="center" />
+    <div class="row" id="Khung_View" style="background-color: lavender; border-radius: 20px">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Mã Loại
+                    </th>
+                    <th>Tên Loại
+                    </th>
+                    <th>Tác vụ
+                    </th>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.MaLoai
+                    </td>
+                    <td>
+                        @item.TenLoai
+                    </td>
+                    <td>
+                        <span>
+                            <a href ="@Url.Action("Edit", "AdminPhanLoai", new { maloai = item.MaLoai })"><i class="fa fa-edit"></i></a>&nbsp
+                            <a href ="@Url.Action("Delete", "AdminPhanLoai", new { maloai = item.MaLoai })"><i class="fa fa-trash-alt"></i></a>
+                        </span>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>

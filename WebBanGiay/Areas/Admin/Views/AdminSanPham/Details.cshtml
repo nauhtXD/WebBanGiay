@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<h2 style="color: gray">Tên sản phẩm:<span style="color: black">@Model.TenSP</span></h2>
+<hr width="100%" size="5px" align="center" color="gray" />
+<html>
+
+<body class=" container">
+    <div class="row">
+        <div class="col-lg-4">
+            <img src="/Content/images/product/@Model.AnhBia" width="250px"/>
+            <hr width="50%" size="5px" align="left" color="gray" />
+            <div>
+                <h5 style="color: gray">Mô tả: <span style="color: red">@Model.MoTa</span></h5>
+            </div>
+        </div>
+
+        <div class="col-lg-8 row card">
+            <div class="card-header card-header-primary Vi_Tri_Card">
+                <h4 class="card-title">THÔNG TIN SẢN PHẨM</h4>
+            </div>
+
+            <div class="card-body">
+                <div>
+                    <h5 style="color: gray">Mã Sản Phẩm: <span style="color: red">@Model.MaSP</span></h5>
+                </div>
+                <div>
+                    <h5 style="color: gray">Giá: <span style="color: red"><i>@Model.Gia VND</i></span></h5>
+                </div>
+                <div>
+                    <h5 style="color: gray">Đánh giá: <span style="color: red">@Model.DanhGia <span style="color: yellow"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-alt"></i></span></span></h5>
+                </div>
+                <div>
+                    <h5 style="color: gray">Màu: <span style="color: red">@Model.Mau</span></h5>
+                </div>
+                <div>
+                    <h5 style="color: gray">Size: <span style="color: red">@Model.Size</span></h5>
+                </div>
+                <div>
+                    <h5 style="color: gray">Tình Trạng: <span style="color: red">@Model.TinhTrang</span></h5>
+                </div>
+                <div>
+                    <h5 style="color: gray">Nhà Cung Cấp: <span style="color: red">@ViewData["TenNCC"]</span></h5>
+                </div>
+                <div>
+                    <h5 style="color: gray">Loại Giày: <span style="color: red">@ViewData["TenLoai"]</span></h5>
+                </div>
+            </div>
+
+            <div>
+                @using (Html.BeginForm())
+                {
+                    <button class="btn btn-success">
+                        @Html.ActionLink("Quay lại Danh Sách", "Index")
+                    </button>
+
+                    <button class="btn btn-danger">
+                        @*<a href="@Url.Action("Edit", "SanPham", new { id = Model.MaSP }))">
+                            <span style="color: white;">Edit</span>
+                        </a>*@
+                        @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.MaSP })
+                    </button>
+                }
+            </div>
+        </div>
+    </div>
+</body>
+</html>

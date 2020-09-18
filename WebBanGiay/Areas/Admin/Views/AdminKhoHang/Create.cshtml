@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm())
+{      
+    <div class="row" id="Khung_View">
+        <div class="col-lg-9">
+            <table class="table">
+                <thead>
+                    <td colspan="2">
+                        <h2>NHẬP KHO THÊM SẢN PHẨM</h2>
+                    </td>
+                </thead>
+                <tr>
+                    <td>Tên Sản Phẩm
+                    </td>
+                    <td>
+                        @Html.DropDownList("MaSP")
+                    </td>
+                </tr>
+                <tr>
+                    <td>Số Lượng Nhập
+                    </td>
+                    <td>
+                        @Html.TextBox("SoLuong")
+                    </td>
+                </tr>
+                <tr>
+                    <td>Ngày Nhập
+                    </td>
+                    <td>
+                        @Html.TextBox("NgayNhap")
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button class="btn btn-outline-info">
+                            @Html.ActionLink("Quay lại Danh Sách", "Index")
+                        </button>
+                    </td>
+                    <td>
+                        <input class="btn btn-outline-info" type="submit" value="Save" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+}

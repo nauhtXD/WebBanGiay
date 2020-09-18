@@ -1,0 +1,92 @@
+﻿@using WebBanGiay.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<SanPham>
+@{
+    ViewBag.Title = "Sản Phẩm";
+    Layout = "~/Views/Shared/_LayoutProduct.cshtml";
+}
+
+<div class="shop_grid_product_area">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-12 col-sm-6 col-lg-4 single_gallery_item wow fadeInUpBig" data-wow-delay="0.2s">
+                <div class="card" style="width: 18rem;">
+                    <div class="product-img">
+                        <img src="/Content/images/product/@item.AnhBia" alt="@item.TenSP">
+                        <div class="product-quicview">
+                            <a href="#" data-toggle="modal" data-target = "#@item.TenSP" ><i class="fa fa-plus"></i></a>
+                        </div>
+                    </div>
+                    <div class="card-body" style="background-color: white;">
+                        <div class="product-description">
+                            <h5 class="card-title">@item.TenSP</h5>
+                            <h4 class="card-text" style="color: red;">
+                                @item.Gia VNĐ
+                            </h4>
+                            <div class="card_area d-flex align-items-center">
+                                <a href="@Url.Action("ThemGioHang", "GioHang", new { @iMaSP = @item.MaSP, @strURL = Request.Url.ToString() })" class="primary-btn block2-btn-addcart">Thêm vào giỏ hàng</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+            </div>
+            <div class = "modal fade" id = "@item.TenSP" tabindex="-1" role="dialog" aria-labelledby="quickview" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered" id="quickview" role="document">
+                    <div class="modal-content">
+                        <button type="button" class="close btn" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <div class="modal-body">
+                            <div class="quickview_body">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-12 col-lg-5">
+                                            <div class="quickview_pro_img">
+                                                <img src="/Content/images/product/@item.AnhBia" width="200" alt="@item.TenSP">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-7">
+                                            <div class="quickview_pro_des">
+                                                <h4 class="title">@item.TenSP</h4>
+                                                <div class="top_seller_product_rating mb-15">
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                </div>
+                                                <h5 class="price">@item.Gia <span>$130</span></h5>
+                                                <p>@item.MoTa</p>
+                                                <a href="@Url.Action("Details", "SanPham", new { @id = @item.MaSP })">Xem chi tiết sản phẩm</a>
+                                            </div>
+                                            <div class="card_area d-flex align-items-center">
+                                                <a href="@Url.Action("ThemGioHang", "GioHang", new { @iMaSP = @item.MaSP, @strURL = Request.Url.ToString() })" class="primary-btn block2-btn-addcart">Thêm vào giỏ hàng</a>
+                                            </div>
+                                            <div class="share_wf mt-30">
+                                                <p>Chia sẻ với bạn bè</p>
+                                                <div class="_icon">
+                                                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                                    <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                                                    <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<div align="center">
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+    <div class="MenuTrang">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+    </div>
+</div>

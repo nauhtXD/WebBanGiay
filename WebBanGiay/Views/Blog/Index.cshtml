@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "Blog";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+@model IEnumerable<WebBanGiay.Models.TinTuc>
+<section id="blog">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="block">
+                    <ul>
+                        @{
+                            var x = 0;    
+                        }
+                        @foreach (var item in Model)
+                        {
+                            if (x / 2 % 2 != 0)
+                            {
+                                <li class="wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="300ms">
+                                    <div class="blog-img">
+                                        <img src="/Content/images/blog/@item.AnhTin" class="img-fluid" alt="blog-img">
+                                    </div>
+                                    <div class="content-right">
+                                        <h3>@item.TieuDeTin</h3>
+                                        <p>@item.NoiDungTinRutGon</p>
+                                    </div>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="500ms">
+                                    <div class="content-left">
+                                        <h3>@item.TieuDeTin</h3>
+                                        <p>@item.NoiDungTinRutGon</p>
+                                    </div>
+                                    <div class="blog-img-2">
+                                        <img src="/Content/images/blog/@item.AnhTin" class="img-fluid" alt="blog-img">
+                                    </div>
+                                </li>
+                            }
+                            x++;
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

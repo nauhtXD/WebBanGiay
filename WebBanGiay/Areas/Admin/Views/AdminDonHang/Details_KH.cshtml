@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Details_KH";
+    Layout = "~/Areas/Admin/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<div class="row card">
+    <div class="card-header card-header-primary Vi_Tri_Card">
+        <h4 class="card-title" style="font-weight: bold; font-style: italic">THÔNG TIN KHÁCH HÀNG</h4>
+    </div>
+    <div class="card-body">
+        <div>
+            <h5><span style="color: gray; font-weight: bold">Tên KH: </span>@Model.TenKH</h5>
+        </div>
+        <div>
+            <h5><span style="color: gray; font-weight: bold">Ngày Sinh: </span>@Model.NgaySinh</h5>
+        </div>
+        <div>
+            <h5><span style="color: gray; font-weight: bold">Giới Tính: </span>@Model.GioiTinh</h5>
+        </div>
+        <div>
+            <h5><span style="color: gray; font-weight: bold">Điện Thoại: </span>@Model.DienThoai</h5>
+        </div>
+        <div>
+            <h5><span style="color: gray; font-weight: bold">Email: </span>@Model.Email</h5>
+        </div>
+        <div>
+            <h5><span style="color: gray; font-weight: bold">Địa Chỉ: </span>@Model.DiaChi</h5>
+        </div>
+    </div>
+    <div>
+        @using (Html.BeginForm())
+        {
+            <button class="btn btn-success" style="float: right; margin-right: 20px; margin-bottom: 10px">
+                @Html.ActionLink("Quay lại Danh Sách", "Index")
+            </button>
+        }
+    </div>

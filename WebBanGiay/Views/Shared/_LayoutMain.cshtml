@@ -1,0 +1,214 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>@ViewBag.Title</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed:500,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/Content/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/Content/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="/Content/css/animate.css">
+
+    <link rel="stylesheet" href="/Content/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/Content/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/Content/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="/Content/css/aos.css">
+
+    <link rel="stylesheet" href="/Content/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="/Content/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="/Content/css/jquery.timepicker.css">
+
+    <link rel="stylesheet" href="/Content/css/flaticon.css">
+    <link rel="stylesheet" href="/Content/css/icomoon.css">
+    <link rel="stylesheet" href="/Content/css/style.css">
+    <link rel="icon" href="/Content/core-img/shoes_adidas_2734.ico">
+
+    <link href="/Content/css/responsive.css" rel="stylesheet">
+</head>
+<body>
+    @{
+        var session = (WebBanGiay.Models.NguoiDung)Session["TaiKhoan"];
+        var sessionAdmin = (WebBanGiay.Models.NguoiDung)Session["Admin"];
+        var sessionContact = Session["LienHe"];
+        var sessionLogin = Session["DangNhap"];
+        var sessionBlog = Session["Blog"];
+        var sessionCart = Session["Cart"];
+    }
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="@Url.Action("Index", "TrangChu")"><span>
+                <img src="/Content/images/logo/sneakers.png"></span>3T ROYAL</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active"><a href="@Url.Action("Index", "TrangChu")" class="nav-link">Trang chủ</a></li>
+                    <li class="nav-item"><a href="@Url.Action("Index", "SanPham")" class="nav-link">Sản phẩm</a></li>
+                    <li class="nav-item"><a href="@Url.Action("Index", "Blog")" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="@Url.Action("Index", "LienHe")" class="nav-link">Liên hệ</a></li>
+                    <li class="nav-item"><a href="@Url.Action("GioHang", "GioHang")" class="nav-link">Giỏ hàng</a></li>
+                    @if (sessionAdmin == null)
+                    {
+                        if (session == null)
+                        {
+                        <li class="nav-item"><a href="@Url.Action("Index", "DangNhap")" class="nav-link">Đăng nhập</a></li>
+                        }
+                        else
+                        {    
+                        <li class="nav-item"><a href="@Url.Action("DangXuat", "DangNhap")" class="nav-link">Xin chào: @session.TenDN, Đăng xuất</a></li>
+                        }
+                    }
+                    else
+                    {
+                        <li class="nav-item"><a href="@Url.Action("Index", "Admin/AdminHome")" class="nav-link">Admin</a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="hero-wrap js-fullheight" style="background-image: url(/Content/images/Cover.jpg);" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text js-fullheight justify-content-center align-items-center">
+                <div class="col-lg-12 ftco-animate d-flex align-items-center">
+                    <div class="text text-center">
+                        <span class="subheading">Chào mừng đến với 3T ROYAL</span>
+                        <h1 class="mb-4">Đồng hành cùng bạn trên mọi nẻo đường</h1>
+                        <p><a href="@Url.Action("Index", "SanPham")" class="btn btn-primary btn-outline-primary px-4 py-2">Mua ngay</a></p>
+                        @if (sessionContact != null)
+                        {
+                            <p class="breadcrumbs"><span class="mr-2"><a href="@Url.Action("Index", "TrangChu")">Trang chủ <i class="fas fa-long-arrow-alt-right"></i></a></span><span>Liên hệ <i class="fas fa-long-arrow-alt-right"></i></span></p>
+                        }
+                        @if (sessionLogin != null)
+                        {
+                            <p class="breadcrumbs"><span class="mr-2"><a href="@Url.Action("Index", "TrangChu")">Trang chủ <i class="fas fa-long-arrow-alt-right"></i></a></span><span>Đăng nhập <i class="fas fa-long-arrow-alt-right"></i></span></p>
+                        }
+                        @if (sessionBlog != null)
+                        {
+                            <p class="breadcrumbs"><span class="mr-2"><a href="@Url.Action("Index", "TrangChu")">Trang chủ <i class="fas fa-long-arrow-alt-right"></i></a></span><span>Blog <i class="fas fa-long-arrow-alt-right"></i></span></p>
+                        }
+                        @if (sessionCart != null)
+                        {
+                            <p class="breadcrumbs"><span class="mr-2"><a href="@Url.Action("Index", "TrangChu")">Trang chủ <i class="fas fa-long-arrow-alt-right"></i></a></span><span>Giỏ hàng <i class="fas fa-long-arrow-alt-right"></i></span></p>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="mainHead">
+        @if (TempData["AlertMessage"] != null)
+        {
+            <div id="AlertBox" class="alert @TempData["AlertType"] hide">
+                @TempData["AlertMessage"]
+            </div>
+        }
+        @RenderBody()
+    </div>
+    <footer class="ftco-footer ftco-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2 logo">3T Royal</h2>
+                        <p>Đồng hành cùng bạn trên mọi nẻo đường.</p>
+                        <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                            <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Lối tắt</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="@Url.Action("Index", "TrangChu")" class="py-2 d-block">Trang Chủ</a></li>
+                            <li><a href="@Url.Action("Index", "SanPham")" class="py-2 d-block">Sản Phẩm</a></li>
+                            <li><a href="@Url.Action("Index", "Blog")" class="py-2 d-block">Blog</a></li>
+                            <li><a href="@Url.Action("Index", "LienHe")" class="py-2 d-block">Liên Hệ</a></li>
+                            <li><a href="@Url.Action("GioHang", "GioHang")" class="py-2 d-block">Giỏ hàng</a></li>
+                            <li><a href="@Url.Action("Index", "DangNhap")" class="py-2 d-block">Đăng nhập</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Thông tin liên hệ</h2>
+                        <div class="block-23 mb-3">
+                            <ul>
+                                <li><span class="fa fa-map-marker"></span><span class="text">140 Lê Trọng Tấn, phường Tây Thạnh, Quận Tân Phú, Thành Phố Hồ Chí Minh, Việt Nam</span></li>
+                                <li><a href="tel:0797504133"><span class="fa fa-phone"></span><span class="text">0983-3XX-3XX</span></a></li>
+                                <li><a href="mailto:thuylovei113@gmail.com"><span class="fa fa-envelope"></span><span class="text">thuylovei113@gmail.com</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4 ml-md-5">
+                        <iframe allowfullscreen="" frameborder="0" width="100%" height="450" src="https://maps.google.com/maps?q=140%20l%C3%AA%20tr%E1%BB%8Dng%20t%E1%BA%A5n&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p>
+                        &copy;Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                        3T Royal Brand Shoes All rights reserved
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="ftco-loader" class="show fullscreen">
+        <svg class="circular" width="48px" height="48px">
+            <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+            <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" />
+        </svg>
+    </div>
+
+    <script src="/Content/js/jquery.min.js"></script>
+    <script src="/Content/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="/Content/js/popper.min.js"></script>
+    <script src="/Content/js/bootstrap.min.js"></script>
+    <script src="/Content/js/jquery.easing.1.3.js"></script>
+    <script src="/Content/js/jquery.waypoints.min.js"></script>
+    <script src="/Content/js/jquery.stellar.min.js"></script>
+    <script src="/Content/js/owl.carousel.min.js"></script>
+    <script src="/Content/js/jquery.magnific-popup.min.js"></script>
+    <script src="/Content/js/aos.js"></script>
+    <script src="/Content/js/jquery.animateNumber.min.js"></script>
+    <script src="/Content/js/bootstrap-datepicker.js"></script>
+    <script src="/Content/js/jquery.timepicker.min.js"></script>
+    <script src="/Content/js/scrollax.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="/Content/js/google-map.js"></script>
+    <script src="/Content/js/main.js"></script>
+    <script src="https://use.fontawesome.com/481e2ecbe4.js"></script>
+    <script src="/Content/js/plugins.js"></script>
+    <script src="/Content/js/jquery.nav.js"></script>
+    <script src="/Content/js/jquery.sticky.js"></script>
+    <script src="/Content/js/wow.min.js"></script>
+    <script type="text/javascript" src="/Content/sweetalert/sweetalert.min.js"></script>
+    <script type="text/javascript">
+        $('.block2-btn-addcart').each(function () {
+            $(this).on('click', function () {
+                swal("Thêm thành công", "Đã thêm vào giỏ hàng", "success");
+            });
+        });
+        $(document).ready(function () {
+            $('html, body').animate({
+                scrollTop: $('#mainHead').offset().top
+            }, 'slow');
+        });
+    </script>
+</body>
+</html>

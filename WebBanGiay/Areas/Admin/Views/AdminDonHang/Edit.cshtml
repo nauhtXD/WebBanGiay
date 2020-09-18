@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/LayoutAdmin.cshtml";
+}
+
+@model WebBanGiay.Models.HoaDon
+@using (Html.BeginForm())
+{      
+    <div class="row">
+        <div class="col-lg-3">
+        </div>
+        <div class="col-lg-9">
+            <table class="table">
+                <thead>
+                    <td colspan="2">
+                        <h2>Tình Trạng Đơn Hàng</h2>
+                    </td>
+                </thead>
+                <tr>
+                    <td>Mã Hoá Đơn
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.MaHD)
+                    </td>
+                </tr>
+                <tr>
+                    <td>Mã Khách Hàng
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.MaKH)
+                        @ViewData["Loi1"]
+                    </td>
+                </tr>
+                <tr>
+                    <td>Ngày Lập
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.NgayLap)
+                        @ViewData["Loi2"]
+                    </td>
+                </tr>
+                <tr>
+                    <td>Ngày Giao
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.NgayGiao)
+                        @ViewData["Loi3"]
+                    </td>
+                </tr>
+                <tr>
+                    <td>Đã Thanh Toán
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.DaThanhToan)
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tình Trạng Giao
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.TinhTrangGiao)
+                        @ViewData["Loi6"]
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tổng Tiền
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.TongTien)
+                        @ViewData["Loi5"]
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button class="btn btn-outline-info">
+                            @Html.ActionLink("Quay lại Danh Sách", "Index")
+                        </button>
+                    </td>
+                    <td>
+                        <input class="btn btn-outline-info" type="submit" value="Save" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+}

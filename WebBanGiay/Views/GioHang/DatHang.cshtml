@@ -1,0 +1,110 @@
+﻿@using WebBanGiay.Models
+@model List<GioHang>
+@{
+    ViewBag.Title = "Đặt hàng";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 ftco-animate">
+            <div class="cart-list">
+                <table class="table">
+                    <thead class="thead-primary">
+                        <tr class="text-center">
+                            <th>&nbsp;</th>
+                            <th>Ảnh</th>
+                            <th>Tên</th>
+                            <th>Giá</th>
+                            <th>Số lượng</th>
+                            <th>Thành tiền</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr class="text-center">
+                                <td class="image-prod">
+                                    <div class="img" style="background-image: url(/Content/images/product/@item.sAnhBia);"></div>
+                                </td>
+                                <td class="product-name">
+                                    <h3>@item.sTenSP</h3>
+                                </td>
+                                <td class="price">@String.Format("{0:0,0}", item.dGia) VNĐ</td>
+                                <td class="quantity">
+                                    <div class="input-group mb-3">
+                                        <input type="text" name="txtSoLuong" class="quantity form-control input-number" value="@item.iSoLuong" min="1" max="100">
+                                    </div>
+                                </td>
+                                <td class="total">@String.Format("{0:0,0}", item.dThanhTien) VNĐ</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-end">
+        <div class="col col-lg-5 col-md-6 mt-5 cart-wrap ftco-animate">
+            <div class="cart-total mb-3">
+                <p class="d-flex">
+                    <span>Tổng tiền hàng</span>
+                    <span>@String.Format("{0:0,0}", @ViewBag.TongTien) VNĐ</span>
+                </p>
+                <p class="d-flex">
+                    <span>Số lượng giày có trong giỏ</span>
+                    <span>@ViewBag.TongSoLuong</span>
+                </p>
+                <p class="d-flex">
+                    <span>Giảm giá</span>
+                    <span>0 VNĐ</span>
+                </p>
+                <hr>
+                <p class="d-flex total-price">
+                    <span>Tổng thành tiền</span>
+                    <span>@String.Format("{0:0,0}", @ViewBag.TongTien) VNĐ</span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <h2 style="text-align: center">THÔNG TIN ĐẶT HÀNG</h2>
+    @{
+        KhachHang kh = (KhachHang)Session["KhachHang"];    
+    }
+    <table align="center">
+        @using (Html.BeginForm())
+        { 
+            @Html.ValidationSummary(true)
+            <tr style="height: 40px">
+                <td>Họ tên khách hàng:</td>
+                <td style="font-weight: bold">@kh.TenKH</td>
+            </tr>
+            <tr style="height: 40px">
+                <td>Địa chỉ:</td>
+                <td style="font-weight: bold">@kh.DiaChi</td>
+            </tr>
+            <tr style="height: 40px">
+                <td>Điện thoại:</td>
+                <td style="font-weight: bold">@kh.DienThoai</td>
+            </tr>
+            <tr style="height: 40px">
+                <td>Ngày đặt:</td>
+                <td style="font-weight: bold">@DateTime.Now.ToShortDateString()</td>
+            </tr>
+            <tr style="height: 40px">
+                <td>Ngày giao hàng:</td>
+                <td style="font-weight: bold">
+                    <input type="date" name="NgayGiao" />
+                </td>
+            </tr>
+            <tr style="height: 40px" align="center">
+                <td></td>
+                <td>
+                    <input type="submit" class="primary-btn" value="ĐỒNG Ý ĐẶT HÀNG" />
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+

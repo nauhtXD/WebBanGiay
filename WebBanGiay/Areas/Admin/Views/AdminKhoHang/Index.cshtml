@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<html>
+<body>
+    <div class="row">
+        <div class="col-lg-5">
+
+        </div>
+        <div class="col-lg-3">
+            <h4 id="Title_View">KHO HÀNG</h4>
+        </div>
+        <div class="col-lg-4">
+            <button class="btn btn-success" id="btn" style="float: right; color:lawngreen">
+                <i class="fa fa-plus-circle"></i><a href="@Url.Action("Create", "AdminKhoHang")" style="color: lawngreen">&nbsp Thêm mới</a>
+            </button>
+        </div>
+    </div>
+    <hr width="100%" size="5px" align="center" color="gray" />
+    <div class="row" class="row" id="Khung_View" style="background-color: lavender; border-radius: 20px">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Tên Sản Phẩm
+                    </th>
+                    <th>Số Lượng
+                    </th>
+                    <th>Ngày Nhập
+                    </th>
+                    <th>Tác vụ
+                    </th>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.TenSP
+                    </td>
+                    <td>
+                        @item.SoLuong
+                    </td>
+                    <td>
+                        @item.NgayNhap
+                    </td>
+                    <td>
+                        <span>
+                            <a href ="@Url.Action("Edit", "AdminKhoHang", new { masp = item.MaSP })"><i class="fa fa-edit"></i></a> &nbsp
+                            <a href ="@Url.Action("Delete", "AdminKhoHang", new { masp = item.MaSP })"><i class="fa fa-trash-alt"></i></a>
+                        </span>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>

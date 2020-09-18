@@ -1,0 +1,87 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<html>
+<body>
+    @using (Html.BeginForm())
+    {
+        <div id="btn_group" class="row">
+            <div class="col-lg-5">
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3">
+                <h4 id="Title_View">DANH MỤC HOÁ ĐƠN</h4>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+            </div>
+        </div>
+        <hr width="100%" size="5px" align="center" />
+        <div class="row" id="Khung_View" style="background-color: lavender; border-radius: 20px">
+            <table class="table col-lg-12 col-md-12 col-sm-12">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Mã Hoá Đơn
+                        </th>
+                        <th>Tên Khách Hàng
+                        </th>
+                        <th>Số điện thoại
+                        </th>
+                        <th>Ngày Lập
+                        </th>
+                        <th>Tổng Tiền
+                        </th>
+                        <th>Đã Giao
+                        </th>
+                        <th>Thông Tin
+                        </th>
+                        <th>Tác Vụ
+                        </th>
+                    </tr>
+                </thead>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.MaHD
+                        </td>
+                        <td>
+                            @item.TenKH
+                        </td>
+                        <td>
+                            @item.DienThoai
+                        </td>
+                        <td>
+                            @item.NgayLap
+                        </td>
+                        <td>
+                            @item.TongTien
+                        </td>
+                        <td>
+                            <div>
+                                @item.TinhTrangGiao
+                            </div>
+                        </td>
+                        <td>
+                            <button @*id="btn" style="float: right; color: lawngreen"*@ style="width: 190px; background-color: lightgrey">
+                                <a href ="@Url.Action("Details_KH", "AdminDonHang", new { makh = item.MaKH })">&nbsp Thông tin khách hàng</a>
+                            </button>
+                            <br />
+                            <button @*id="btn" style="float: right; color: lawngreen"*@ style="width: 190px; background-color: lightgrey">
+                                <a href="@Url.Action("Details_HD", "AdminDonHang", new { mahd = item.MaHD })">&nbsp Thông tin đơn hàng</a>
+                            </button>
+                            <br />
+                        </td>
+                        <td>
+                            <span>
+                                <a href ="@Url.Action("Edit", "AdminDonHang", new { id = item.MaHD })"><i class="fa fa-edit"></i></a>&nbsp 
+                                <a href ="@Url.Action("Delete", "AdminDonHang", new { id = item.MaHD })"><i class="fa fa-trash-alt"></i></a>
+                            </span>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    }
+</body>
+</html>

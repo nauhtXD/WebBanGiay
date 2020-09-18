@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutProduct.cshtml";
+}
+
+<div class="product_image_area">
+    <div class="container">
+        <div class="row s_product_inner">
+            <div class="col-lg-6">
+                <div class="s_Product_carousel">
+                    <div class="single-prd-item">
+                        <img class="img-fluid" src="/Content/images/product/@Model.AnhBia" alt="@Model.TenSP">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 offset-lg-1">
+                <div class="s_product_text">
+                    <h3>@Model.TenSP</h3>
+                    <h2>@Model.Gia VNĐ</h2>
+                    <ul class="list">
+                        <li><a class="active" href="#"><span>Loại</span> : @Model.MaLoai</a></li>
+                        <li><a href="#"><span>Tình trạng</span> : @Model.TinhTrang</a></li>
+                    </ul>
+                    <p>@Model.MoTa</p>
+                    <div class="card_area d-flex align-items-center">
+                        <a class="primary-btn block2-btn-addcart" href="@Url.Action("ThemGioHang", "GioHang", new { @iMaSP = @Model.MaSP, @strURL = Request.Url.ToString() })">Thêm vào giỏ hàng</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

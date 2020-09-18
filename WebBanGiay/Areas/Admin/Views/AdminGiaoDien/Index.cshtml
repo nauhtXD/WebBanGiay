@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<html>
+<body>
+    @using (Html.BeginForm())
+    {
+        @*Thay doi banner chinh*@
+        <div class="row card">
+            <div class="card-header card-header-primary Vi_Tri_Card">
+                <h4 class="card-title">Thay đổi Banner Chính</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <p>Chọn hình ảnh:</p>
+                    </div>
+                    <div class="col-md-10 txt">
+                        @Html.TextBox("Banner_Chinh")
+                        <button>...</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*Thay doi banner trai/phai*@
+        <div class="row card" style="margin-top: 70px; margin-bottom: 70px">
+            <div class="card-header card-header-primary Vi_Tri_Card">
+                <h4 class="card-title">Thay đổi Banner Trái - Phải</h4>
+            </div>
+
+            <div class="card-body row">
+                <div class="col-lg-6 row">
+                    <div class="col-lg-3">
+                        <p>Chọn hình ảnh:</p>
+                    </div>
+                    <div class="col-md-9 txt">
+                        @Html.TextBox("Banner_Trai")
+                        <button>...</button>
+                    </div>
+                </div>
+                <div class="col-lg-6 row">
+                    <div class="col-lg-3">
+                        <p>Chọn hình ảnh:</p>
+                    </div>
+                    <div class="col-md-9 txt">
+                        @Html.TextBox("Banner_Phai")
+                        <button>...</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <input type="submit" class="btn btn-success" value="Save" style="margin-top : 10px"/>
+        </div>
+    }
+</body>
+</html>
+

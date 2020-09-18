@@ -1,0 +1,9 @@
+﻿@model IEnumerable<WebBanGiay.Models.NhaCungCap>
+<table class="table">
+    @foreach (var item in Model)
+    { 
+        <tr>
+            <td><a href="@Url.Action("Loc", "SanPham", new {maNCC = @item.MaNCC})">@item.TenNCC</a></td>
+        </tr>
+    }
+</table>

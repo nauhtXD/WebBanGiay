@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/LayoutAdmin.cshtml";
+}
+
+@model WebBanGiay.Models.PhanLoai
+
+<html>
+<body>
+    @using (Html.BeginForm())
+    {
+        <div>
+            <div id="Khung_View">
+                <table class="table">
+                    <thead>
+                        <td colspan="2">
+                            <h2>THÔNG TIN CHI TIẾT LOẠI</h2>
+                        </td>
+                    </thead>
+                    <tr>
+                        <td>Mã Loại
+                        </td>
+                        <td>
+                            <fieldset disabled>
+                                <div>
+                                    @Html.TextBoxFor(m => m.MaLoai)
+                                </div>
+                            </fieldset>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Tên Loại
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(m => m.TenLoai)
+                            @ViewData["Loi"]
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button class="btn btn-outline-info">
+                                @Html.ActionLink("Quay lại Danh Sách", "Index")
+                            </button>
+                        </td>
+                        <td>
+                            <input class="btn btn-outline-info" type="submit" value="Save" />
+                    </tr>
+                </table>
+            </div>
+        </div> 
+    }
+</body>
+</html>

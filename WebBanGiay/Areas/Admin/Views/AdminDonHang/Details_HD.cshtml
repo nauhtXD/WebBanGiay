@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Details_HD";
+    Layout = "~/Areas/Admin/Views/Shared/LayoutAdmin.cshtml";
+}
+
+
+<div class="row" id="Khung_View" style="background-color: lavender; border-radius: 20px">
+    <table class="table col-lg-12 col-md-12 col-sm-12">
+        <thead class="thead-dark">
+            <tr>
+                <th>Mã HD
+                </th>
+                <th>Mã Tên SP
+                </th>
+                <th>Số Lượng
+                </th>
+                <th>Đơn Giá
+                </th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.MaHD
+                </td>
+                <td>
+                    @item.TenSP
+                </td>
+                <td>
+                    @item.SoLuong
+                </td>
+                <td>
+                    @item.DonGia
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+@using (Html.BeginForm())
+{
+    <button class="btn btn-success" style="float: right; margin-right: 20px; margin-bottom: 10px">
+        @Html.ActionLink("Quay lại Danh Sách", "Index")
+    </button>
+}
+

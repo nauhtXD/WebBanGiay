@@ -1,0 +1,183 @@
+﻿@charset "utf-8";
+/* CSS Document */
+hr {
+    border-top: 5px solid darkolivegreen;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.logo-img-style {
+    color: aqua!important;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 22px;
+    font-family: serif;
+}
+
+    .logo-img-style > img {
+        width: 50px;
+        height: 50px;
+    }
+
+.logo-img-style-footer {
+    color: aqua!important;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 22px;
+    font-family: serif;
+}
+
+    .logo-img-style-footer > img {
+        width: 30px;
+        height: 30px;
+    }
+
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 1.428571429;
+    border-radius: 15px;
+}
+
+    .btn-circle.btn-lg {
+        width: 50px;
+        height: 50px;
+        padding: 10px 16px;
+        font-size: 18px;
+        line-height: 1.33;
+        border-radius: 25px;
+        background-color: #A9F5F2;
+    }
+
+    .btn-circle.btn-xl {
+        width: 70px;
+        height: 70px;
+        padding: 10px 16px;
+        font-size: 24px;
+        line-height: 1.33;
+        border-radius: 35px;
+    }
+
+.admin-icon-style {
+    background-color: #A9F5F2;
+    margin-left: 20px;
+}
+
+
+/*CSS View Index, Controller SanPham
+    Tao Thanh tim kiem "Gay nhu y"*/
+#btn_group input {
+    outline: none;
+}
+
+    #btn_group input[type=search] {
+        -webkit-appearance: textfield;
+        -webkit-box-sizing: content-box;
+        font-family: inherit;
+        font-size: 100%;
+    }
+
+    #btn_group input::-webkit-search-decoration,
+    #btn_group input::-webkit-search-cancel-button {
+        display: none;
+    }
+
+
+    #btn_group input[type=search] {
+        background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+        border: solid 1px #ccc;
+        padding: 9px 10px 9px 32px;
+        width: 80px;
+        -webkit-border-radius: 10em;
+        -moz-border-radius: 10em;
+        border-radius: 10em;
+        -webkit-transition: all .5s;
+        -moz-transition: all .5s;
+        transition: all .5s;
+    }
+
+        #btn_group input[type=search]:focus {
+            width: 200px;
+            background-color: #fff;
+            border-color: #66CC75;
+            -webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+            -moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+            box-shadow: 0 0 5px rgba(109,207,246,.5);
+        }
+
+
+    #btn_group input:-moz-placeholder {
+        color: #999;
+    }
+
+    #btn_group input::-webkit-input-placeholder {
+        color: #999;
+    }
+
+/* Demo 2 */
+#btn_group #demo-2 input[type=search] {
+    width: 15px;
+    padding-left: 10px;
+    color: transparent;
+    cursor: pointer;
+}
+
+    #btn_group #demo-2 input[type=search]:hover {
+        background-color: #fff;
+    }
+
+    #btn_group #demo-2 input[type=search]:focus {
+        width: 130px;
+        padding-left: 32px;
+        color: #000;
+        background-color: #fff;
+        cursor: auto;
+    }
+
+#btn_group #demo-2 input:-moz-placeholder {
+    color: transparent;
+}
+
+#btn_group #demo-2 input::-webkit-input-placeholder {
+    color: transparent;
+}
+
+#Khung_View {
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 10px;
+    box-sizing: inherit;
+    margin-bottom: 10px;
+    padding: 20px;
+    box-sizing: inherit;
+    line-height: 1.6em;
+    padding: 15px;
+    background-color: lightgrey;
+}
+
+#Title_View {
+    color: yellowgreen;
+    font-weight: bolder;
+    margin-top: 5px;
+}
+
+.Vi_Tri_Card {
+    background: lavender;
+    position: relative;
+    left: 2.5%;
+    top: -20px;
+    border-radius: 5px;
+    width: 95%;
+}
+
+.txt > input {
+    width: 350px;
+}
+
+.txt > textarea {
+    width: 80%;
+    margin: 0px;
+}
